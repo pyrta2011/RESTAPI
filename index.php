@@ -1,5 +1,5 @@
 <?php
-
+header("Content-type: json/application");
 require "connect.php";
 
 $posts = mysqli_query($connect, "SELECT * FROM `posts`");
@@ -9,4 +9,4 @@ while ($post = mysqli_fetch_assoc($posts)) {
     $allposts[] = $post;
 }
 
-print_r($allposts);
+echo json_encode($allposts);
