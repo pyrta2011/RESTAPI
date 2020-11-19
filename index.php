@@ -4,8 +4,18 @@ header('Content-Type: application/json');
 require "connect.php";
 require "function.php";
 
-if ($_GET['q'] === 'posts') {
-    getPosts($connect);    
-}
+$q = $_GET['q'];
+$params = explode('/', $q);
 
+$type = $params[0];
+$id = $params[1];
+
+
+if ($type === 'posts') {
+    if (isset($id)) {
+        getPost($connect, $id);
+    }else {
+        getPosts($connect);
+    }   
+}
 
