@@ -1,12 +1,11 @@
 <?php
-header("Content-type: json/application");
+
+header('Content-Type: application/json');
 require "connect.php";
+require "function.php";
 
-$posts = mysqli_query($connect, "SELECT * FROM `posts`");
-$allposts = [];
-
-while ($post = mysqli_fetch_assoc($posts)) {
-    $allposts[] = $post;
+if ($_GET['q'] === 'posts') {
+    getPosts($connect);    
 }
 
-echo json_encode($allposts);
+
