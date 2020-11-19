@@ -1,6 +1,6 @@
 <?php
 
-$connect = mysqli_connect("127.0.0.1", "root", "", "restapp");
+$connect = mysqli_connect("localhost", "f0488505_rest", "ft89yrwq", "f0488505_rest");
 if($connect) {
     echo 'Connection successfuly!';
 } else {
