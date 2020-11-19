@@ -1,9 +1,12 @@
 <?php
 
-$connect = mysqli_connect("127.0.0.1", "root", "", "restapp");
-if($connect) {
-    exit('Connection successfuly!');
-} else {
-    exit('Connection failed!'.mysqli_connect_error());
+require "connect.php";
+
+$posts = mysqli_query($connect, "SELECT * FROM `posts`");
+$allposts = [];
+
+while ($post = mysqli_fetch_assoc($posts)) {
+    $allposts[] = $post;
 }
-?>
+
+print_r($allposts);
